@@ -1,10 +1,7 @@
 package com.shoucheng.jinrikuaibao;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.shoucheng.jinrikuaibao.network.NewsService;
@@ -15,22 +12,24 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends BaseActivity {
     @BindView(R.id.personalCenter)
     ImageView personalCenter;
     @BindView(R.id.mRecycler)
     RecyclerView mRecycler;
 
     private List<String> mList = new ArrayList<>();
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+
+    @Override
+    public void initView() {
+        super.initView();
         fetchNewsData();
 
         initReccler();

@@ -1,7 +1,7 @@
 package com.shoucheng.jinrikuaibao;
 
 import android.content.Context;
-import android.support.v4.widget.TextViewCompat;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +34,12 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.NewsHo
     @Override
     public void onBindViewHolder(NewsHolder holder, int position) {
         holder.titleTV.setText(mList.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.startActivity(new Intent(mContext, AboutMeActivity.class));
+            }
+        });
     }
 
     @Override
